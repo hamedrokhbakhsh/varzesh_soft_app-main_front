@@ -1,0 +1,35 @@
+
+<ion-content>
+
+  <div class="container mt-5">
+    <div class="">
+      <h1 class=" text mt-0">احراز هویت</h1>
+    </div>
+
+
+
+    <div dir="rtl" class="row">
+      <div class="col mt-5">
+        <form [formGroup]="form" (ngSubmit)="confirm()">
+          <ion-item class="">
+            <ion-label position="fixed text">تایید شماره</ion-label>
+            <ion-input formControlName="token" type="text"></ion-input>
+          </ion-item>
+          <button [disabled]="!timer"  (click)="resend()" style="background: transparent">
+            <div   class="d-flex align-items-center mt-2 justify-content-start">
+              <span class="text">ارسال مجدد</span>
+              <ion-icon class=""  name="refresh"></ion-icon>
+              <countdown #cd [config]="config"></countdown>
+            </div>
+          </button>
+
+          <ion-button class="mt-4 text-bottom text-light"  type="submit" expand="full">تایید</ion-button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer">
+  </div>
+</ion-content>

@@ -1,0 +1,66 @@
+
+<ion-content>
+
+  <div class="container mt-3">
+    <div class="">
+      <h1 class=" text mt-0">ثبت نام</h1>
+    </div>
+
+
+    <div class="row">
+      <div class="col mt-3">
+        <form [formGroup]="form" (ngSubmit)="confirm()">
+          <ion-item
+                  [class.valid]="form.get('mobile').valid && form.get('mobile').dirty"
+                  [class.invalid]="form.get('mobile').invalid && form.get('mobile').dirty"
+                  dir="rtl">
+            <ion-label position="fixed " class="text">شماره همراه</ion-label>
+            <ion-input formControlName="mobile" type="text"></ion-input>
+
+          </ion-item>
+          <ion-item
+                  [class.valid]="form.get('name').valid && form.get('name').dirty"
+                  [class.invalid]="form.get('name').invalid && form.get('name').dirty"
+                    dir="rtl">
+            <ion-label position="fixed " class="text">نام</ion-label>
+            <ion-input formControlName="name" type="text"></ion-input>
+
+          </ion-item>
+          <ion-item
+                  [class.valid]="form.get('family').valid && form.get('family').dirty"
+                  [class.invalid]="form.get('family').invalid && form.get('family').dirty"
+                  dir="rtl">
+            <ion-label  position="fixed " class="text">نام خانوادگی</ion-label>
+            <ion-input formControlName="family" type="text"></ion-input>
+
+          </ion-item>
+
+
+
+
+            <ion-radio-group formControlName="gender" dir="rtl">
+              <ion-item>
+                <ion-label class="text">مرد</ion-label>
+                <ion-radio value="man"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label class="text">زن</ion-label>
+                <ion-radio value="woman"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+
+
+
+          <ion-button class="mt-4 text-bottom text-light"  type="submit" expand="full">
+            <ion-spinner *ngIf="loading"></ion-spinner>
+            <span *ngIf="!loading">تایید</span>
+          </ion-button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+  </div>
+</ion-content>
