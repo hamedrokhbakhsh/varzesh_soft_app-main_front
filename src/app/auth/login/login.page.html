@@ -1,11 +1,13 @@
 
 <ion-content>
 
-  <div class="container mt-5">
-    <div class="">
-      <h1 class=" text mt-0">خوش امدید</h1>
-      <h2 class="text mt-4" (click)="signup()">ثبت نام</h2>
+  <div class="container  mt-5">
+    <div class="background-image row bg-light ">
+      <div class="col d-flex justify-content-center">
+
+        <img src="../../../assets/img/logo.jpg" height="100" width="100"/></div>
     </div>
+
 
 
     <div class="row">
@@ -17,11 +19,12 @@
             <ion-label position="fixed text">موبایل</ion-label>
             <ion-input formControlName="mobile" type="text"></ion-input>
           </ion-item>
-          <ion-button class="mt-4 text-bottom text-light"  type="submit" expand="full">
+          <ion-button [disabled]="loading" class="mt-4 text-bottom text-light"  type="submit" expand="full">
             <ion-spinner *ngIf="loading"></ion-spinner>
-            <span *ngIf="!loading">تایید شماره</span>
+            <span *ngIf="!loading"> ورود</span>
           </ion-button>
         </form>
+        <ion-button expand="full" (click)="signup()">ثبت نام</ion-button>
       </div>
     </div>
   </div>

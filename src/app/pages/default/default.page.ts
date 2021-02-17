@@ -9,11 +9,25 @@ import {Router} from '@angular/router';
 })
 export class DefaultPage implements OnInit {
 
-  mobile = localStorage.getItem('mobile');
-  token = localStorage.getItem('token');
+
   constructor(private service: AppServiceService, private router: Router) { }
 
+
+  public selectedIndex = 0;
+  public appPages = [
+    {
+      title: 'پنل روزانه',
+      url: '',
+      icon: 'home'
+    }
+  ];
+
+
   ngOnInit() {
+    const path = window.location.pathname.split('folder/')[1];
+    if (path !== undefined) {
+      this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
+    }
   }
 
     logout() {

@@ -1,9 +1,11 @@
 
 <ion-content>
 
-  <div class="container mt-3">
-    <div class="">
-      <h1 class=" text mt-0">ثبت نام</h1>
+  <div class="container mt-5">
+    <div class="background-image row bg-light ">
+      <div class="col d-flex justify-content-center">
+
+        <img src="../../../assets/img/logo.jpg" height="100" width="100"/></div>
     </div>
 
 
@@ -52,7 +54,7 @@
 
 
 
-          <ion-button class="mt-4 text-bottom text-light"  type="submit" expand="full">
+          <ion-button  [disabled]="loading"  class="mt-4 text-bottom text-light"  type="submit" expand="full">
             <ion-spinner *ngIf="loading"></ion-spinner>
             <span *ngIf="!loading">تایید</span>
           </ion-button>

@@ -6,22 +6,26 @@
 }
 
 ion-content{
-  --background: #c1abf0;
+  --background: #cfe3a2;
 }
 
-.footer{
+.footer {
   position: fixed;
   height: 150px;
   width: 100%;
   bottom: 0;
-  background-image: linear-gradient(to bottom, #c1abf0, #9e83d4, #7b5db9, #58379d, #330e82);}
-h1{
-  font-size: 3em;
-  float: right;
+  background-image: linear-gradient(to top, #09c509, #66cd3a, #92d45c, #b4db7e, #cfe3a2);
+
 }
+
+.background-image{
+  border-top:#09c509 solid 3px;
+  border-bottom:#09c509 solid 3px;
+}
+
+
 h2{
   font-size: 1em;
-  float: left;
 }
 .row{
   clear: both;
@@ -33,6 +37,6 @@ ion-button{
 .valid{
   border-bottom: 1px solid #00ff00;
 }
-.invalid{
+.invalid.touched{
   border-bottom: 1px solid red;
 }

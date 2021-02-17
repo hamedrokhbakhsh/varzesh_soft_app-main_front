@@ -2,8 +2,10 @@
 <ion-content>
 
   <div class="container mt-5">
-    <div class="">
-      <h1 class=" text mt-0">احراز هویت</h1>
+    <div class="background-image row bg-light ">
+      <div class="col d-flex justify-content-center">
+
+        <img src="../../../assets/img/logo.jpg" height="100" width="100"/></div>
     </div>
 
 
@@ -15,15 +17,17 @@
             <ion-label position="fixed text">تایید شماره</ion-label>
             <ion-input formControlName="token" type="text"></ion-input>
           </ion-item>
-          <button [disabled]="!timer"  (click)="resend()" style="background: transparent">
+          <button class="d-flex justify-content-center"  [disabled]="!timer"  (click)="resend()" style="background: transparent">
             <div   class="d-flex align-items-center mt-2 justify-content-start">
               <span class="text">ارسال مجدد</span>
               <ion-icon class=""  name="refresh"></ion-icon>
-              <countdown #cd [config]="config"></countdown>
+              <countdown #cd [config]="config" (event)="onEvent($event)"></countdown>
             </div>
           </button>
-
-          <ion-button class="mt-4 text-bottom text-light"  type="submit" expand="full">تایید</ion-button>
+          <ion-button  [disabled]="loading"  class="mt-4 text-bottom text-light"  type="submit" expand="full">
+            <span *ngIf="!loading">تایید </span>
+            <ion-spinner *ngIf="loading"></ion-spinner>
+          </ion-button>
         </form>
       </div>
     </div>

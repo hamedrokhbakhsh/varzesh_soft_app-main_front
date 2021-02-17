@@ -16,6 +16,7 @@ export class VerifyNumberPage implements OnInit {
   form: FormGroup;
   isSubmit = false;
   response: ResponseModel;
+  loading = false;
   data = {
     mobile: localStorage.getItem('mobile')
   };
@@ -25,7 +26,7 @@ export class VerifyNumberPage implements OnInit {
       token: ['', [Validators.required]],
       mobile: [localStorage.getItem('mobile')],
     });
-    this.config = {leftTime: this.timeData, demand:true};
+    this.config = {leftTime: this.timeData, demand:true, format: `mm:ss`};
 
   }
   ngOnInit() {
@@ -34,17 +35,23 @@ export class VerifyNumberPage implements OnInit {
     this.isSubmit = true;
 
     if (this.form.valid){
+      this.loading = true ;
       this.service.verifyUser(this.form.value).subscribe(res => {
         this.response = res ;
         if (this.response.status){
           this.router.navigate(['/home']).then();
           this.service.storeToken(this.response.data);
+          this.loading= false;
         }else {
           this.toast.presentToast(this.response.message).then();
+          this.loading= false;
+
         }
       }, err => {
         console.log(err);
         this.toast.presentToast('عدم ارتباط با سرور').then();
+        this.loading= false;
+
       });
     }
   }
@@ -65,5 +72,11 @@ export class VerifyNumberPage implements OnInit {
           this.toast.presentToast('عدم ارتباط با سرور').then();
         });
       }
+  }
+
+  onEvent($event): void {
+    if($event.left === 0){
+      this.timer= !this.timer;
+    }
   }
 }
