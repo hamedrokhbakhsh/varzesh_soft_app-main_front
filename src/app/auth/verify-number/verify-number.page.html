@@ -1,39 +1,31 @@
 
 <ion-content>
 
-  <div class="container mt-5">
-    <div class="background-image row bg-light ">
-      <div class="col d-flex justify-content-center">
-
-        <img src="../../../assets/img/logo.jpg" height="100" width="100"/></div>
-    </div>
-
-
+  <div class="container">
 
     <div dir="rtl" class="row">
-      <div class="col mt-5">
+      <div class="col mt-2">
         <form [formGroup]="form" (ngSubmit)="confirm()">
-          <ion-item class="">
+          <ion-item class="input-border">
             <ion-label position="fixed text">تایید شماره</ion-label>
             <ion-input formControlName="token" type="text"></ion-input>
           </ion-item>
           <button class="d-flex justify-content-center"  [disabled]="!timer"  (click)="resend()" style="background: transparent">
             <div   class="d-flex align-items-center mt-2 justify-content-start">
-              <span class="text">ارسال مجدد</span>
+              <span class="text text-light">ارسال مجدد</span>
               <ion-icon class=""  name="refresh"></ion-icon>
-              <countdown #cd [config]="config" (event)="onEvent($event)"></countdown>
+              <countdown class="text-light" #cd [config]="config" (event)="onEvent($event)"></countdown>
             </div>
           </button>
-          <ion-button  [disabled]="loading"  class="mt-4 text-bottom text-light"  type="submit" expand="full">
+          <button  [disabled]="loading"  class="mt-4 text-bottom btn btn-block btn-outline-info input-border text-light">
             <span *ngIf="!loading">تایید </span>
             <ion-spinner *ngIf="loading"></ion-spinner>
-          </ion-button>
+          </button>
         </form>
       </div>
     </div>
   </div>
 
 
-  <div class="footer">
-  </div>
+
 </ion-content>

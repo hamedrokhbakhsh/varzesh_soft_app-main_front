@@ -1,33 +1,25 @@
 
 <ion-content>
 
-  <div class="container  mt-5">
-    <div class="background-image row bg-light ">
-      <div class="col d-flex justify-content-center">
-
-        <img src="../../../assets/img/logo.jpg" height="100" width="100"/></div>
-    </div>
+  <div class="container ">
 
 
-
-    <div class="row">
+    <div class="row ">
       <div class="col mt-5">
         <form [formGroup]="form" (ngSubmit)="submit()">
-          <ion-item dir="rtl"
-                    [class.valid]="form.get('mobile').valid && form.get('mobile').dirty"
-                    [class.invalid]="form.get('mobile').invalid && form.get('mobile').dirty">
+          <ion-item class="input-border" dir="rtl">
             <ion-label position="fixed text">موبایل</ion-label>
-            <ion-input formControlName="mobile" type="text"></ion-input>
+            <ion-input formControlName="mobile" minlength="11" maxlength="11" type="text"></ion-input>
           </ion-item>
-          <ion-button [disabled]="loading" class="mt-4 text-bottom text-light"  type="submit" expand="full">
+          <button [disabled]="loading" class="mt-4 text-bottom  btn btn-block btn-outline-info text-light"  type="submit" >
             <ion-spinner *ngIf="loading"></ion-spinner>
             <span *ngIf="!loading"> ورود</span>
-          </ion-button>
+          </button>
+
         </form>
-        <ion-button expand="full" (click)="signup()">ثبت نام</ion-button>
+        <p class="text-right btn-link mt-4 mr-3"   (click)="signup()">ثبت نام</p>
       </div>
     </div>
   </div>
-  <div class="footer">
-  </div>
+
 </ion-content>

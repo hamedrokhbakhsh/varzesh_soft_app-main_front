@@ -5,38 +5,39 @@
   font-family:BNazanin,'BNazanin',tahoma;
 }
 
-ion-content{
-  --background: #cfe3a2;
-}
-
-.footer {
-  position: fixed;
-  height: 150px;
-  width: 100%;
-  bottom: 0;
-  background-image: linear-gradient(to top, #09c509, #66cd3a, #92d45c, #b4db7e, #cfe3a2);
+ion-content {
+  --background: url('../../../assets/img/bg.jpeg') no-repeat center/cover ;
 
 }
 
-.background-image{
-  border-top:#09c509 solid 3px;
-  border-bottom:#09c509 solid 3px;
+
+.container{
+  margin-top: 50px;
 }
 
 
-h2{
-  font-size: 1em;
-}
-.row{
-  clear: both;
-}
 
-ion-button{
-  --background: #EF767A;
-}
 .valid{
-  border-bottom: 1px solid #00ff00;
+  border-bottom: 3px solid #00ff00;
 }
-.invalid.touched{
-  border-bottom: 1px solid red;
+.invalid{
+  border-bottom: 3px solid red;
+}
+
+p{
+  font-family: BNazanin, 'BNazanin', tahoma;
+}
+
+button{
+  border-radius: 20px 20px 20px 20px;
+
+}
+
+.btn-border{
+  border-radius: 20px 20px 20px 20px;
+
+}
+.input-border{
+  border-radius: 20px 20px 20px 20px;
+
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ResponseModel} from '../models/response-model';
+import {Router} from '@angular/router';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import {ResponseModel} from '../models/response-model';
 })
 export class AppServiceService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   mobileCheck(data: any): Observable<any> {
@@ -46,8 +47,10 @@ export class AppServiceService {
   logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('mobile');
+    this.router.navigate(['login']).then();
     return true ;
   }
 }
+
 
 

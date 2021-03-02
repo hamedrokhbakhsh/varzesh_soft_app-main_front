@@ -1,36 +1,27 @@
 
 <ion-content>
 
-  <div class="container mt-5">
-    <div class="background-image row bg-light ">
-      <div class="col d-flex justify-content-center">
-
-        <img src="../../../assets/img/logo.jpg" height="100" width="100"/></div>
-    </div>
-
+  <div class="container">
 
     <div class="row">
-      <div class="col mt-3">
+      <div class="col">
         <form [formGroup]="form" (ngSubmit)="confirm()">
-          <ion-item
-                  [class.valid]="form.get('mobile').valid && form.get('mobile').dirty"
-                  [class.invalid]="form.get('mobile').invalid && form.get('mobile').dirty"
+          <ion-item class="btn-border mt-1"
                   dir="rtl">
             <ion-label position="fixed " class="text">شماره همراه</ion-label>
-            <ion-input formControlName="mobile" type="text"></ion-input>
+            <ion-input minlength="11" maxlength="11" formControlName="mobile" type="text"></ion-input>
 
           </ion-item>
           <ion-item
-                  [class.valid]="form.get('name').valid && form.get('name').dirty"
-                  [class.invalid]="form.get('name').invalid && form.get('name').dirty"
+                  class="btn-border mt-1 "
+
                     dir="rtl">
             <ion-label position="fixed " class="text">نام</ion-label>
             <ion-input formControlName="name" type="text"></ion-input>
 
           </ion-item>
           <ion-item
-                  [class.valid]="form.get('family').valid && form.get('family').dirty"
-                  [class.invalid]="form.get('family').invalid && form.get('family').dirty"
+                  class="btn-border mt-1"
                   dir="rtl">
             <ion-label  position="fixed " class="text">نام خانوادگی</ion-label>
             <ion-input formControlName="family" type="text"></ion-input>
@@ -40,12 +31,12 @@
 
 
 
-            <ion-radio-group formControlName="gender" dir="rtl">
-              <ion-item>
+            <ion-radio-group   formControlName="gender" dir="rtl">
+              <ion-item  class="btn-border mt-1" >
                 <ion-label class="text">مرد</ion-label>
                 <ion-radio value="man"></ion-radio>
               </ion-item>
-              <ion-item>
+              <ion-item  class="btn-border">
                 <ion-label class="text">زن</ion-label>
                 <ion-radio value="woman"></ion-radio>
               </ion-item>
@@ -54,15 +45,14 @@
 
 
 
-          <ion-button  [disabled]="loading"  class="mt-4 text-bottom text-light"  type="submit" expand="full">
+          <button  [disabled]="loading"  class="mt-4 text-bottom text-light btn btn-outline-info btn-block input-border" >
             <ion-spinner *ngIf="loading"></ion-spinner>
             <span *ngIf="!loading">تایید</span>
-          </ion-button>
+          </button>
 
         </form>
       </div>
     </div>
   </div>
-  <div class="footer">
-  </div>
+
 </ion-content>

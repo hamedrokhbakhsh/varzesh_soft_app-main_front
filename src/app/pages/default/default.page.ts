@@ -13,14 +13,6 @@ export class DefaultPage implements OnInit {
   constructor(private service: AppServiceService, private router: Router) { }
 
 
-  public selectedIndex = 0;
-  public appPages = [
-    {
-      title: 'پنل روزانه',
-      url: '',
-      icon: 'home'
-    }
-  ];
 
 
   ngOnInit() {
